@@ -148,7 +148,7 @@ function forceSeq(){
 
 function timer(){
     const myTimer = document.querySelector(".timer");
-    let maxTime = 5;
+    let maxTime = 20;
     second = setInterval(minusSecond, 1000);
     function minusSecond(){
         if(maxTime == 0){
