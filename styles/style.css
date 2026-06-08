@@ -9,3 +9,102 @@ img {
     display: block;
     max-width:100%;
 }
+
+.container{
+    border: 1px solid black;
+    width: 800px;
+    display: flex;
+}
+
+.table{
+    border: 1px dotted red;
+    width: 500px;
+    height: 550px;
+    display: flex;
+    gap: 30px;
+}
+
+.user{
+    border: 1px solid green;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user_attempt{
+    border: 1px solid blue;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.render{
+    border: 1px solid green;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;  
+}
+
+.render_attempt{
+    border: 1px solid blue;
+    height: 50px ;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+button{
+    font-size: 30px;
+    margin-bottom: 10px;
+
+}
+
+.left_side{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.log{
+    border: 10px solid rgb(255, 255, 255);
+    width: 300px;
+    height: 200px;
+    background-color: black;
+    color: white;
+}
+
+.result {
+    border: 1px solid rebeccapurple;
+    height: 50px;
+}
+
+.red::before{
+    content: "🔶";
+}
+.green::before{
+    content: "🟢";
+}
+.blue::before{
+    content: "🟦";
+}
+.yellow::before{
+    content: "⚠️";
+}
+
+.plus{
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+}
+
+.minus{
+    font-size: 35px;
+    font-weight: bold;
+    color: brown;
+}
+
