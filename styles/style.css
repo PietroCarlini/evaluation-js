@@ -16,6 +16,28 @@ img {
     display: flex;
 }
 
+.top-section{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    gap:30px;
+}
+
+.timer{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.buttons{
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .table{
     border: 1px dotted red;
     width: 500px;
@@ -60,7 +82,6 @@ img {
 button{
     font-size: 30px;
     margin-bottom: 10px;
-
 }
 
 .left_side{
@@ -106,5 +127,17 @@ button{
     font-size: 35px;
     font-weight: bold;
     color: brown;
+}
+
+.result{
+    display: flex;
+    justify-content: center;
+}
+
+.result_area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 

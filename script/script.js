@@ -7,7 +7,10 @@ const btnBlue = document.querySelector(".blue")
 const btnYellow = document.querySelector(".yellow")
 const attemptArea = document.querySelectorAll(".user_attempt")
 const renderArea = document.querySelectorAll(".render_attempt")
+const startBtn = document.querySelector(".start")
 const log = document.querySelector(".log")
+const resultSeq = document.querySelector(".result")
+const resultTxt = document.querySelector(".text_result")
 // =================================
 // 🧠 2. Variables globales / état
 // =================================
@@ -17,6 +20,7 @@ const colors = ["🔶","🟢","🟦", "⚠️"]
 const lengthSeq = 4;
 let counter = 0;
 let allBtns = document.querySelectorAll("button")
+let second;
 
 // =================================
 // 🎊 3. Fonctions (logique métier)
@@ -42,12 +46,14 @@ function disableButtons(){
     allBtns.forEach(element => {
             element.disabled = true;
     })
+    startBtn.disabled= false;
 }
 
 function enableButtons(){ 
     allBtns.forEach(element => {
             element.disabled = false;
     })
+    startBtn.disabled= true;
 }
 
 function checkLength(){
@@ -104,16 +110,22 @@ function checkWin(plus){
     if(plus == 4){
         log.textContent = "Seauquece found! You won :)"
         disableButtons();
+        startBtn.textContent = "Reset"
     } else if (counter == 10) {
         log.textContent = "No more attempts! You lost :("
         disableButtons();
+        clearInterval(second);
+        revealSecret()
+        startBtn.textContent = "Reset"
+    }else {
+        clearInterval(second);
+        timer()
     }
 }
 
 function sendSequence(){
     if(userSeq.length == 4){
         let guessClue = checkGuess(userSeq, secretSeq);
-        console.log(guessClue);
         renderFeedback(guessClue.plus, guessClue.minus, counter);
         counter++;
         userSeq.length = 0;
@@ -122,11 +134,72 @@ function sendSequence(){
     }
 }
 
+function forceSeq(){
+    let guessClue = checkGuess(userSeq, secretSeq);
+        renderFeedback(guessClue.plus, guessClue.minus, counter);
+        counter++;
+        userSeq.length = 0;
+        checkLength();
+        checkWin(guessClue.plus)
+        
+}
+
+function timer(){
+    const myTimer = document.querySelector(".timer");
+    let maxTime = 5;
+    second = setInterval(minusSecond, 1000);
+    function minusSecond(){
+        if(maxTime == 0){
+            clearInterval(second);
+            forceSeq()
+        } else {
+            maxTime--;
+            myTimer.textContent = `${maxTime}`
+        }
+    }
+}
+
+function reset(){
+    let user_attempt = document.querySelectorAll(".user_attempt");
+    user_attempt.forEach(element => {
+        element.innerHTML = "";
+    });
+
+    let render_attempt = document.querySelectorAll(".render_attempt");
+    render_attempt.forEach(element => {
+        element.innerHTML = "";
+    });
+
+    startBtn.textContent = "START";
+    log.textContent = ""
+
+    resultTxt.textContent = "";
+    resultSeq.innerHTML = "";
+}
+
+function revealSecret(){
+    resultTxt.textContent = "The secret sequence was:"
+    for(let i = 0; i < secretSeq.length; i++){
+    let divSecret = document.createElement('div');
+    divSecret.classList.add("plus");
+    divSecret.textContent = `${secretSeq[i]}`
+    resultSeq.appendChild(divSecret)
+    }
+}
+
+
 // =================================
 // 🧲 4. Événements (interactions)
 // =================================
 generateSecret();
+disableButtons()
 console.log(secretSeq);
+
+startBtn.addEventListener('click', function(){
+    reset()
+    enableButtons()
+    timer()
+})
 
 btnRed.addEventListener('click', function(){
     chooseColor(0, "red")
