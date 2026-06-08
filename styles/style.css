@@ -10,25 +10,58 @@ img {
     max-width:100%;
 }
 
+body{
+    margin: 0;
+    background: #1d0024;
+background: linear-gradient(90deg, rgba(29, 0, 36, 1) 0%, rgba(119, 9, 121, 1) 41%, rgba(66, 224, 255, 1) 100%);
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-family: "Stalinist One", sans-serif;
+    font-size: 60px;
+    color: white;
+    border-bottom: 3px solid white;
+}
+
 .container{
-    border: 1px solid black;
     width: 800px;
     display: flex;
+    align-items: center;
 }
 
 .top-section{
     width: 500px;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    gap:30px;
+    gap:100px;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: "Michroma", sans-serif;
+    color: white;
+    font-size: 18px;
 }
 
 .timer{
     width: 150px;
     display: flex;
     justify-content: center;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
+    font-family: "Michroma", sans-serif;
+    color: white;
+    width: 200px;
 }
 
 .buttons{
@@ -39,7 +72,6 @@ img {
 }
 
 .table{
-    border: 1px dotted red;
     width: 500px;
     height: 550px;
     display: flex;
@@ -47,61 +79,71 @@ img {
 }
 
 .user{
-    border: 1px solid green;
     width: 300px;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding: 5px;
 }
 
 .user_attempt{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     height: 50px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    background-color: white ;
     
 }
 
 .render{
-    border: 1px solid green;
     width: 150px;
     display: flex;
     flex-direction: column;
-    gap: 5px;  
+    gap: 5px;
+    padding: 5px;
 }
 
 .render_attempt{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     height: 50px ;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    background-color: white;
 }
 
 button{
     font-size: 30px;
-    margin-bottom: 10px;
+    background-color: white;
+    border-style: none;
+    display: flex;
 }
 
 .left_side{
     height: 500px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
+    justify-content: center;
 }
 
-.log{
+.logDiv{
     border: 10px solid rgb(255, 255, 255);
     width: 300px;
     height: 200px;
     background-color: black;
     color: white;
+    padding: 10px;
+    font-family: "Michroma", sans-serif;
 }
 
 .result {
-    border: 1px solid rebeccapurple;
     height: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .red::before{
@@ -129,10 +171,6 @@ button{
     color: brown;
 }
 
-.result{
-    display: flex;
-    justify-content: center;
-}
 
 .result_area{
     display: flex;
@@ -141,3 +179,18 @@ button{
     gap: 5px;
 }
 
+.start{
+    font-family: "Michroma", sans-serif;
+    color: rgb(212, 0, 255);
+    text-align: center;
+}
+
+.hide{
+    opacity: 0.3;
+}
+
+.text_result{
+    font-family: "Michroma", sans-serif;
+    color: white;
+
+}

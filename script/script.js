@@ -47,13 +47,15 @@ function disableButtons(){
             element.disabled = true;
     })
     startBtn.disabled= false;
+    startBtn.classList.remove('hide') 
 }
 
 function enableButtons(){ 
     allBtns.forEach(element => {
             element.disabled = false;
     })
-    startBtn.disabled= true;
+    startBtn.disabled = true;
+    startBtn.classList.add('hide') 
 }
 
 function checkLength(){
@@ -116,7 +118,7 @@ function checkWin(plus){
         disableButtons();
         clearInterval(second);
         revealSecret()
-        startBtn.textContent = "Reset"
+        startBtn.textContent = "RESET"
     }else {
         clearInterval(second);
         timer()
@@ -154,12 +156,16 @@ function timer(){
             forceSeq()
         } else {
             maxTime--;
-            myTimer.textContent = `${maxTime}`
+            myTimer.textContent = `Timer: ${maxTime}`
         }
     }
 }
 
 function reset(){
+    secretSeq = [];
+    counter = 0;
+    userSeq = [];
+    clearInterval(second);
     let user_attempt = document.querySelectorAll(".user_attempt");
     user_attempt.forEach(element => {
         element.innerHTML = "";
@@ -175,6 +181,9 @@ function reset(){
 
     resultTxt.textContent = "";
     resultSeq.innerHTML = "";
+    enableButtons()
+
+    log.textContent = "Try to find the secret sequence."
 }
 
 function revealSecret(){
@@ -191,12 +200,10 @@ function revealSecret(){
 // =================================
 // 🧲 4. Événements (interactions)
 // =================================
-generateSecret();
-disableButtons()
-console.log(secretSeq);
 
 startBtn.addEventListener('click', function(){
     reset()
+    generateSecret();
     enableButtons()
     timer()
 })

@@ -4,58 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
     <script defer src="script/script.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Stalinist+One&display=swap" rel="stylesheet">
     <title>Exo Eval JS</title>
 </head>
 
 <body>
 
-    <h1>MASTERMIND</h1>
-
-    <div class="top-section">
-        <div class="buttons">
-            <button class="red"></button>
-            <button class="green"></button>
-            <button class="blue"></button>
-            <button class="yellow"></button>
-        </div>
-        <div class="timer">00</div>
-    </div>
-
-    <div class="container">
-        <div class="table">
-            <div class="user">
-                <div class="user_attempt"></div>
-                <div class="user_attempt"></div>
-                <div class="user_attempt"></div>
-                <div class="user_attempt"></div>
-                <div class="user_attempt"></div>
-                <div class="user_attempt"></div>
-                <div class="user_attempt"></div>
-                <div class="user_attempt"></div>
-                <div class="user_attempt"></div>
-                <div class="user_attempt"></div>
+    <div class="wrapper">
+        <h1>MASTERMIND</h1>
+        <div class="top-section">
+            <div class="buttons">
+                <button class="red"></button>
+                <button class="green"></button>
+                <button class="blue"></button>
+                <button class="yellow"></button>
             </div>
-            <div class="render">
-                <div class="render_attempt"></div>
-                <div class="render_attempt"></div>
-                <div class="render_attempt"></div>
-                <div class="render_attempt"></div>
-                <div class="render_attempt"></div>
-                <div class="render_attempt"></div>
-                <div class="render_attempt"></div>
-                <div class="render_attempt"></div>
-                <div class="render_attempt"></div>
-                <div class="render_attempt"></div>
-            </div>
+            <div class="timer">Timer: 20</div>
         </div>
-        <div class="left_side">
-            <div class="log"></div>
-            <button class="start">START</button>
-            <div class="result_area">
-                <p class="text_result"></p>
-                <div class="result"></div>
+        <div class="container">
+            <div class="table">
+                <div class="user">
+                    <p class="info">Try your sequence</p>
+                    <div class="user_attempt"></div>
+                    <div class="user_attempt"></div>
+                    <div class="user_attempt"></div>
+                    <div class="user_attempt"></div>
+                    <div class="user_attempt"></div>
+                    <div class="user_attempt"></div>
+                    <div class="user_attempt"></div>
+                    <div class="user_attempt"></div>
+                    <div class="user_attempt"></div>
+                    <div class="user_attempt"></div>
+                </div>
+                <div class="render">
+                    <p class="info">Feedback</p>
+                    <div class="render_attempt"></div>
+                    <div class="render_attempt"></div>
+                    <div class="render_attempt"></div>
+                    <div class="render_attempt"></div>
+                    <div class="render_attempt"></div>
+                    <div class="render_attempt"></div>
+                    <div class="render_attempt"></div>
+                    <div class="render_attempt"></div>
+                    <div class="render_attempt"></div>
+                    <div class="render_attempt"></div>
+                </div>
+            </div>
+            <div class="left_side">
+                <div class="logDiv">
+                    <p class="log"></p>
+                </div>
+                <button class="start">START</button>
+                <div class="result_area">
+                    <p class="text_result"></p>
+                    <div class="result"></div>
+                </div>
             </div>
         </div>
     </div>
